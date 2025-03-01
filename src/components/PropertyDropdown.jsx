@@ -1,20 +1,20 @@
 import { useState, useEffect, useContext } from "react";
-import { RiArrowDownSLine, RiMapPinLine } from "react-icons/ri";
+import { RiArrowDownSLine, RiHome5Line } from "react-icons/ri";
 import { RiArrowUpSLine } from "react-icons/ri";
 import { Menu } from '@headlessui/react'
 import { HouseContext } from "./HouseContext";
 
 const PropertyDropdown = () => {
-  const { country, setCountry, countries } = useContext(HouseContext);
+  const { property, setProperty, properties } = useContext(HouseContext);
   const [isOpen, setIsOpen] = useState(false);
 
 
   return (
     <Menu as='div' className='dropdown relative'>
       <Menu.Button onClick={() => setIsOpen(!isOpen)} className='dropdown-btn w-full text-left'>
-        <RiMapPinLine className="dropdown-icon-primary" />
+        <RiHome5Line className="dropdown-icon-primary" />
         <div>
-          <div className="text-[15px] font-medium leading-tight">{country}</div>
+          <div className="text-[15px] font-medium leading-tight">{property}</div>
           <div className="text-[13px]">Select your place</div>
         </div>
         {
@@ -28,10 +28,10 @@ const PropertyDropdown = () => {
 
       <Menu.Items className='dropdown-menu'>
         {
-          countries.map((country, index) => {
+          properties.map((property, index) => {
             return (
-              <Menu.Item onClick={() => setCountry(country)} className='cursor-pointer hover:text-violet-700 transition-all' as='li' key={index}>
-                {country}
+              <Menu.Item onClick={() => setProperty(property)} className='cursor-pointer hover:text-violet-700 transition-all' as='li' key={index}>
+                {property}
               </Menu.Item>
             )
           })
