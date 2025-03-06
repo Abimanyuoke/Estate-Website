@@ -32,7 +32,8 @@ const HouseContextProvider = ({ children }) => {
   }, [])
 
   // set loading
-  const handleclick = () => {
+  const handleClick = () => {
+    console.log('clicked')
     setLoading(true)
 
 
@@ -109,7 +110,7 @@ const HouseContextProvider = ({ children }) => {
 
 
   return (
-    <HouseContext.Provider value={{ country, setCountry, countries, setCountries, property, properties, setProperty, price, setPrice, houses, loading }}>{children}</HouseContext.Provider>
+    <HouseContext.Provider value={{ country, setCountry, countries, setCountries, property, properties, setProperty, price, setPrice, houses, loading, handleClick }}>{children}</HouseContext.Provider>
   );
 };
 
